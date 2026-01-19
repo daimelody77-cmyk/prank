@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Scan</title>
+    <style>
+        body {
+            background: black;
+            color: lime;
+            font-family: monospace;
+            text-align: center;
+            padding-top: 50px;
+        }
+        #msg {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .loading {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% {opacity: 1;}
+            50% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+
+<h1>📱 Initializing Phone Scan...</h1>
+<p class="loading">Please do not close</p>
+
+<div id="msg"></div>
+
+<script>
+    let messages = [
+        "Scanning storage...",
+        "Checking contacts...",
+        "Analyzing photos...",
+        "Uploading data to NASA...",
+        "Just kidding 😜",
+        "You got pranked 😂",
+        "Relax, nothing happened!"
+    ];
+
+    let i = 0;
+    let msgDiv = document.getElementById("msg");
+
+    let interval = setInterval(() => {
+        msgDiv.innerHTML += messages[i] + "<br>";
+        i++;
+        if (i === messages.length) clearInterval(interval);
+    }, 1000);
+</script>
+
+</body>
+</html>
